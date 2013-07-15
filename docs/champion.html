@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>GET champion Documentation for The LoL API - The Unofficial League of Legends API</title>	
+		<meta name="description" content="The documentation of GET champions of the LoL API, the unofficial League of Legends API." />
+		<meta name="keywords" content="League of Legends, League, Legends, MOBA, API, documentation, GET" />
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" />	
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>		
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-31887442-1']);
+		  _gaq.push(['_setDomainName', 'michaelku.com']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>	
+	</head>
+	<body>
+		<div class = "container_12">
+			<div class = "grid_12">
+				<div id = "header">
+				</div>
+				<div id = "navi">
+					<ul>
+						<li><a href = "../index.html">Home</a></li>
+						<li><a href = "../about.html">About</a></li>
+						<li><a href = "../features.html">Features</a></li>
+						<li><a href = "index.html">Documentation</a></li>
+					</ul>
+				</div>
+				<div id = "content">
+					<div class = "grid_3 alpha">
+						<div class = "entry navi">
+							<div class = "title">
+								API Reference
+							</div>
+							<ul>
+								<li><a href = "champion.html">GET champion</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class = "grid_9 omega">
+						<div class = "entry last">
+							<div class = "title">
+								<h1>GET champions</h1>
+							</div>
+							<div class = "text">
+								Return information about the champion selected.
+								
+								<br /><br />
+								
+								<div class = "title">
+									Resource URL
+								</div>
+								<div class = "text">
+									<em>http://lol.michaelku.com/api/champion/</em>
+								</div>
+									
+								<table>
+									<tr><td class = "header"><u><strong>Resource</strong></u></td><td class = "header"><u><strong>Description</strong></u></td></tr>
+									<tr>
+										<td>
+											name 
+											<div class = "sub">
+												required
+											</div>
+										</td>
+										<td>
+											Tells the API which champion's information to retrieve.
+										</td>
+									</tr>
+									<tr>
+										<td>
+											skills 
+											<div class = "sub">
+												optional
+											</div>
+										</td>
+										<td>
+											When set to 'true', the API will return the skill list of the champion. 
+											Linebreaks are denoted by asterisks (*) for easy string splitting. <br />
+											This is set to 'false' by default.
+										</td>
+									</tr>
+									<tr><td>format <div class = "sub">optional</div></td><td>Tells the API what format to return the data in--either json or xml. <br /> This is set to 'json' by default.</td></tr>
+								</table>
+								
+								<div class = "title">
+									Example Requests
+								</div>
+								<div class = "text">
+									GET champion 'Teemo' in default JSON format <br />
+									<em>http://lol.michaelku.com/api/champion/?name=teemo</em>
+								</div>	
+
+<pre>
+<code>{
+    &quot;champion&quot;:{
+        &quot;id&quot;:&quot;17&quot;,
+        &quot;name&quot;:&quot;Teemo&quot;,&quot;
+        title&quot;:&quot;The Swift Scout&quot;,
+        &quot;attributes&quot;:&quot;Ranged, Stealth, Support&quot;,
+        &quot;attack&quot;:&quot;6&quot;,
+        &quot;health&quot;:&quot;4&quot;,
+        &quot;magic&quot;:&quot;8&quot;,
+        &quot;difficulty&quot;:&quot;5&quot;,
+        &quot;ip&quot;:&quot;1350&quot;,
+        &quot;rp&quot;:&quot;585&quot;,
+        &quot;release&quot;:&quot;2009-02-21&quot;
+    }
+}</code>
+</pre>
+
+								<div class = "text">
+									GET champion 'Teemo' in XML format <br />
+									<em>http://lol.michaelku.com/api/champion/?name=teemo&format=xml</em>
+								</div>	
+<pre>
+<code>&lt;champion&gt;
+    &lt;id&gt;17&lt;/id&gt;
+    &lt;name&gt;Teemo&lt;/name&gt;
+    &lt;title&gt;The Swift Scout&lt;/title&gt;
+    &lt;attributes&gt;Ranged, Stealth, Support&lt;/attributes&gt;
+    &lt;attack&gt;6&lt;/attack&gt;
+    &lt;health&gt;4&lt;/health&gt;
+    &lt;magic&gt;8&lt;/magic&gt;
+    &lt;difficulty&gt;5&lt;/difficulty&gt;
+    &lt;ip&gt;1350&lt;/ip&gt;
+    &lt;rp&gt;585&lt;/rp&gt;
+    &lt;release&gt;2009-02-21&lt;/release&gt;
+&lt;/champion&gt;</code>
+</pre>
+
+								<div class = "text">
+									GET champion 'Teemo' and skills in XML format <br />
+									<em>http://lol.michaelku.com/api/champion/?name=teemo&skills=true&format=xml</em>
+								</div>	
+<pre>
+<code>&lt;champion&gt;
+    &lt;id&gt;17&lt;/id&gt;
+    &lt;name&gt;Teemo&lt;/name&gt;
+    &lt;title&gt;The Swift Scout&lt;/title&gt;
+    &lt;attributes&gt;Ranged, Stealth, Support&lt;/attributes&gt;
+    &lt;attack&gt;6&lt;/attack&gt;
+    &lt;health&gt;4&lt;/health&gt;
+    &lt;magic&gt;8&lt;/magic&gt;
+    &lt;difficulty&gt;5&lt;/difficulty&gt;
+    &lt;ip&gt;1350&lt;/ip&gt;
+    &lt;rp&gt;585&lt;/rp&gt;
+    &lt;release&gt;2009-02-21&lt;/release&gt;
+    &lt;skill&gt;
+        &lt;passive&gt;
+            &lt;name&gt;Camouflage&lt;/name&gt;
+            &lt;description&gt;
+                If Teemo stands still and takes no actions for 3 seconds...
+            &lt;/description&gt;
+        &lt;/passive&gt;
+        &lt;q&gt;
+            &lt;name&gt;Blinding Dart&lt;/name&gt;
+            &lt;description&gt;
+                Obscures an enemy's vision with a powerful venom...
+            &lt;/description&gt;
+            &lt;cost&gt;70/80/90/100/110 Mana&lt;/cost&gt;
+            &lt;range&gt;680&lt;/range&gt;
+        &lt;/q&gt;
+        &lt;w&gt;
+            &lt;name&gt;Move Quick&lt;/name&gt;
+            &lt;description&gt;
+                Teemo scampers around...
+            &lt;/description&gt;
+            &lt;cost&gt;40 Mana&lt;/cost&gt;
+            &lt;range&gt;0&lt;/range&gt;
+        &lt;/w&gt;
+        &lt;e&gt;
+            &lt;name&gt;Toxic Shot&lt;/name&gt;
+            &lt;description&gt;
+                Each of Teemo's attacks will poison the target...
+            &lt;/description&gt;
+            &lt;cost&gt;Passive&lt;/cost&gt;
+            &lt;range&gt;680&lt;/range&gt;
+        &lt;/e&gt;
+        &lt;r&gt;
+            &lt;name&gt;Noxious Trap&lt;/name&gt;
+            &lt;description&gt;
+                Teemo places an explosive poisonous trap...
+            &lt;/description&gt;
+            &lt;cost&gt;75/100/125 Mana&lt;/cost&gt;
+            &lt;range&gt;230&lt;/range&gt;
+        &lt;/r&gt;
+    &lt;/skill&gt;
+&lt;/champion&gt;</code>
+</pre>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id = "footer">
+					<a href = "http://michaelku.com/">Michael Ku &copy; 2012</a> <br />
+					All images and data used are trademarks or registered trademarks of Riot Games, Inc. <br />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
